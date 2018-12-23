@@ -37,7 +37,7 @@ newDT = rpart(Churn ~ ., data = custchurn.test_train, method = "class")
 result = predict(newDT, custchurn.test_test, type = "class")
 # Prints out the confusion matrix and accuracy of model
 confMat = table(custchurn.test_test$Churn, result)
-accuracy = sum(diag(base))/sum(base)
+accuracy = sum(diag(confMat))/sum(confMat)
 cat("\014")
 cat(" -> The confusion matrix for customer churning is below with [", formatC(accuracy*100, 4, digits = 2, format = "f"), "% ] accuracy: ")
 confMat
