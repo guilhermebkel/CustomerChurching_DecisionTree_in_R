@@ -16,7 +16,7 @@ levels(custchurn$Contract) = c("Month", "One Year", " Two Years")
 levels(custchurn$Churn) = c("Stays", "Leaves")
 
 # -> Taking only the columns we want to our model
-custchurn.test = custchurn[c("Tenure", "Contract", "Churn", "Total Charges")]
+custchurn.test = custchurn[c("Tenure", "Contract", "Churn", "Monthly Charges")]
 
 # -> Create a decision tree using "Churn" as the variable target and everything else as the predictors:
 myDecisionTree = rpart(Churn ~ ., data = custchurn.test, method = "class")
